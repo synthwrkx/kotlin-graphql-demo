@@ -1,0 +1,26 @@
+query ConferenceQuery($namePrefix: String){
+    conference {
+        name
+    }
+
+    people(namePrefix: $namePrefix) {
+        __typename
+        name
+        ... on Attendee {
+            ticket
+        }
+        ... on Speaker {
+            talks
+        }
+    }
+
+    s1: schedule {
+        greetings
+        talks
+    }
+
+    s2: schedule {
+        greetings
+        talks
+    }
+}
